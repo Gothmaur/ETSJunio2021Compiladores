@@ -43,7 +43,7 @@ int main()
         cin >> cadena;
         afn = p1->convertirERaAFN(cadena); ///Proceso de construcción
         afn.generarArchivoAFN(afn); ///Generación de documeto
-        ///p1->probarCadenasAFN(afn); ///Prueba de recorrido
+        afn.Automata::toString("AFN");
         break;
       case '2':
         s->iniciarAlgoritmo();
