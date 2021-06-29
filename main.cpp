@@ -11,7 +11,7 @@
 
 ///Bibliotecas creadas en clase
 #include "Encabezados/PruebasAFD.hpp"
-#include "Encabezados/PruebasAFN.hpp"
+#include "Thompson/PruebasAFN.hpp"
 #include "Encabezados/Subconjunto.hpp"
 
 using namespace std;
