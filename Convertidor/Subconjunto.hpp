@@ -2,7 +2,7 @@
 #define _SUBCONJUNTO_HPP_
 
 #include <algorithm>
-#include "AFN.hpp"
+#include "../Thompson/AFN.hpp"
 #include "AFD.hpp"
 
 class Subconjunto{
@@ -10,7 +10,7 @@ public:
     Subconjunto(){};
     int subconjuntoActual;
     int kernelActual;
-    int estadoInicial;  
+    int estadoInicial;
     int estadoFinal;
     void iniciarAlgoritmo();
     std::vector<int> subconjunto;

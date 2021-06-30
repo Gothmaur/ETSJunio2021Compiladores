@@ -1,7 +1,7 @@
 #ifndef _AFD_HPP_
 #define _AFD_HPP_
 
-#include "Automata.hpp"
+#include "../Thompson/Automata.hpp"
 
 class AFD : public Automata{
 public:

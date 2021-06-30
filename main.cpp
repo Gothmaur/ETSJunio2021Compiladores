@@ -10,9 +10,9 @@
 #include <stdlib.h>
 
 ///Bibliotecas creadas en clase
-#include "Encabezados/PruebasAFD.hpp"
+#include "Convertidor/PruebasAFD.hpp"
 #include "Thompson/PruebasAFN.hpp"
-#include "Encabezados/Subconjunto.hpp"
+#include "Convertidor/Subconjunto.hpp"
 
 using namespace std;
 
