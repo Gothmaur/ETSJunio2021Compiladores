@@ -1,53 +1,6 @@
 #include "PruebasAFN.hpp"
 
 /**
-    Esta funcion permite  definir las transiciones del automata AFN.
-    Recibe:
-      - int numeroDeTransiciones :: El numero de transiciones a definir
-      - vector<char> alfabeto :: El alfabeto del automata
-    Regresa:
-      - vector<Transicion*> transiciones :: La tabla de transiciones del AFN
-**/
-vector<Transicion*> PruebasAFN::definirTransicionesAFN(int numeroDeTransiciones, vector<char> alfabeto){
-  vector<Transicion*> transiciones;
-  int estado1;
-  int estado2;
-  char simbolo;
-  char esEpsilon;
-  for(int i = 0; i < numeroDeTransiciones; i++){
-    cout << "La transicion " << i << " es una transicion epsilon? (s/n)" << endl;
-    cin >> esEpsilon;
-    if(esEpsilon == 's' || esEpsilon == 'S'){
-      cout << "\nIngresa el numero del primer estado: ";
-      cin >> estado1;
-      cout << "\nIngresa el numero del segundo estado: ";
-      cin >> estado2;
-      transiciones.reserve(1);
-      transiciones.push_back(new Transicion(estado1,estado2,'E',true));
-    }
-    else{
-      cout << "\nIngresa el numero del primer estado: ";
-      cin >> estado1;
-      cout << "\nIngresa el numero del segundo estado: ";
-      cin >> estado2;
-      cout << "\nIngresa el simbolo de transicion: ";
-      cin >> simbolo;
-      cout << "\n";
-      while(Pruebas::buscarSimbolo(alfabeto, simbolo)==false){
-        cout << "\nIngresa un simbolo que pertenezca al alfabeto: ";
-        cin >> simbolo;
-      }
-      transiciones.reserve(1);
-      transiciones.push_back(new Transicion(estado1,estado2,simbolo,false));
-    }
-  }
-  return transiciones;
-}
-
-
-
-
-/**
  * Esta funcion comprueba que un caracter no sea el caracter
  * nulo o alguno de los caracteres especiales utilizados para
  * definir expresiones regulares.
