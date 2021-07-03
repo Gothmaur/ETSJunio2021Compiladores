@@ -13,6 +13,7 @@
 #include "Convertidor/PruebasAFD.hpp"
 #include "Thompson/PruebasAFN.hpp"
 #include "Convertidor/Subconjunto.hpp"
+#include "LL1/Datos.hpp"
 
 using namespace std;
 
@@ -23,6 +24,7 @@ int main()
   PruebasAFN *p1 = new PruebasAFN(); ///Puntero para probar el AFN
   PruebasAFD *afd=new PruebasAFD(); ///Puntero para el AFD de la construcción de Thompson
   Subconjunto *s = new Subconjunto(); ///Puntero para probar el algoritmo de sub conjuntos
+  Datos gram = Datos(); ///Gramatica
   string cadena; ///Cadena que servirá para obtener la Exp Reg
   AFN afn; /// Auxiliar para generar el documento AFN
 
@@ -32,7 +34,8 @@ int main()
      cout << "Ingrese el tipo de automata que desea crear:" << endl;
      cout << "1 --- ER a AFN (Contrucciones de Thompson)" << endl;
      cout << "2 --- AFN a AFD (Algoritmo de los Subconjuntos)" << endl;
-     cout << "3 --- Salir del programa" <<endl;
+     cout << "3 --- Obtener tabla LL1 de una gramatica" <<endl;
+     cout << "4 --- Salir del programa" <<endl;
      cout << "Ingrese su seleccion: ";
      cin >> tipoAutomata;
 
@@ -50,6 +53,13 @@ int main()
         afd->crearAFD();
         break;
       case '3':
+          if(gram.Lectura("gramatica.txt")){
+            gram.InfoLectura();
+          }else{
+            cout << "Error de lectura" << endl;
+          }
+        break;
+      case '4':
         cout<<"Esta seguro de salir (s/n)"<<endl;
         cin >> opcion;
             if(opcion == 's') {return 0;}
