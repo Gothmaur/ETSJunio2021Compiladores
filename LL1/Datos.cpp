@@ -6,11 +6,11 @@
  Datos::Datos(){};
 
 /**
-    * Esta función realiza la lectura de datos desde un archivo
+    * Esta funciï¿½n realiza la lectura de datos desde un archivo
     * para una gramatica libre de contexto
     * Entrada: Gramatica, url de documento
     * Salida: 1 si se obtienen los datos correctamente,
-    *         0 si ocurrió un error con la lectura
+    *         0 si ocurriï¿½ un error con la lectura
 */
  bool Datos::Lectura(std::string Documento){
     ifstream archivo(Documento); ///Abrir archivo
@@ -37,10 +37,10 @@
             char simbolo = aux[0]; //obtencion del simbolo
             string prod = aux.substr(5,aux.length()); //obtencion de valor de produccion
             ReglasDeProduccion.reserve(1);
-            ReglasDeProduccion.push_back(new Produccion(simbolo,prod));//Agregando producción a la lista
+            ReglasDeProduccion.push_back(new Produccion(simbolo,prod));//Agregando producciï¿½n a la lista
         }while(getline(archivo,aux));
         return 1;
-    }else{ return 0; } //Return 0 si no se abrió el archivo
+    }else{ return 0; } //Return 0 si no se abriï¿½ el archivo
  }
 
 void Datos::InfoLectura()
@@ -58,8 +58,21 @@ void Datos::InfoLectura()
         if(i<Terminales.size()-1){ cout <<",";}
     }
     cout <<endl;
-    cout << "Reglas de producción: " << endl; //Mostrar simblos Terminales
+    cout << "Reglas de producciï¿½n: " << endl; //Mostrar simblos Terminales
     for(unsigned int i=0; i < ReglasDeProduccion.size(); i++){
         cout << ReglasDeProduccion[i]->Simbolo << " -> " << ReglasDeProduccion[i]->prod <<endl;
     }
+}
+
+void Datos::Limpiar(){
+    Terminales.clear();
+    NoTerminales.clear();
+    ReglasDeProduccion.clear();
+    for(unsigned int i=0; i < prims.size(); i++){
+        prims[i]->prod.clear();
+    }
+    prims.clear();for(unsigned int i=0; i < ults.size(); i++){
+        ults[i]->prod.clear();
+    }
+    ults.clear();
 }
